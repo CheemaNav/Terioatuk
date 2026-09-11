@@ -28,12 +28,12 @@ export default function HeroVideo() {
   return (
     <video
       ref={videoRef}
-      className="hero-video pointer-events-none absolute inset-0 h-full w-full object-cover"
+      className="hero-video pointer-events-none absolute inset-0 h-full w-full max-w-none object-cover"
       autoPlay
       muted
       loop
       playsInline
-      preload="auto"
+      preload="metadata"
       aria-hidden="true"
     >
       <source

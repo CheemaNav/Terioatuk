@@ -202,26 +202,26 @@ export default function WorkSlider() {
               src={item.image}
               alt={item.title}
               fill
-              sizes="(min-width: 1024px) 62rem, 86vw"
+              sizes="(min-width: 1024px) 62rem, 100vw"
               className="object-cover"
               draggable={false}
             />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(20,22,24,0.08)_0%,rgba(20,22,24,0.28)_42%,rgba(16,18,20,0.88)_100%)]" />
-            <div className="relative z-10 mt-auto max-w-[36rem] p-[clamp(22px,4vw,42px)] text-white">
-              <p className="m-0 mb-2 font-mono text-[11px] tracking-[0.16em] text-white/70 uppercase">
+            <div className="relative z-10 mt-auto max-w-[36rem] p-5 text-white sm:p-[clamp(22px,4vw,42px)]">
+              <p className="m-0 mb-2 font-mono text-[10.5px] tracking-[0.14em] text-white/70 uppercase sm:text-[11px] sm:tracking-[0.16em]">
                 {item.kicker}
               </p>
-              <h3 className="m-0 font-sans text-[clamp(26px,3vw,40px)] font-bold leading-[1.12] tracking-[-0.03em]">
+              <h3 className="m-0 font-sans text-[clamp(22px,5vw,40px)] font-bold leading-[1.15] tracking-[-0.03em]">
                 {item.title}
               </h3>
-              <p className="mt-3 mb-0 max-w-[46ch] text-[15px] leading-[1.6] text-white/80">
+              <p className="mt-2.5 mb-0 line-clamp-3 max-w-[46ch] text-[14px] leading-[1.55] text-white/80 sm:mt-3 sm:line-clamp-none sm:text-[15px] sm:leading-[1.6]">
                 {item.body}
               </p>
               <Link
                 href={item.href || "/#quote"}
                 target={item.href ? "_blank" : undefined}
                 rel={item.href ? "noopener noreferrer" : undefined}
-                className="pointer-events-auto mt-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2.5 text-[14.5px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-navy"
+                className="pointer-events-auto mt-4 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2.5 text-[14.5px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-navy sm:mt-5"
                 onClick={(event) => event.stopPropagation()}
               >
                 {item.href ? "Visit site" : "View project"}
@@ -232,18 +232,22 @@ export default function WorkSlider() {
         ))}
       </div>
 
-      <div className="mt-6 flex items-center justify-center gap-2.5">
+      <div className="mt-5 flex items-center justify-center gap-1 px-4 sm:mt-6 sm:gap-2.5">
         {CASES.map((item, index) => (
           <button
             key={item.title}
             type="button"
             aria-label={`Show ${item.title}`}
             aria-current={index === activeReal ? "true" : undefined}
-            className={`h-2 rounded-full transition-all duration-500 ${
-              index === activeReal ? "w-7 bg-ink" : "w-2 bg-ink/25 hover:bg-ink/50"
-            }`}
+            className="inline-flex h-10 w-10 items-center justify-center"
             onClick={() => scrollToTrack(index + 1)}
-          />
+          >
+            <span
+              className={`block h-2 rounded-full transition-all duration-500 ${
+                index === activeReal ? "w-7 bg-ink" : "w-2 bg-ink/25 hover:bg-ink/50"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>

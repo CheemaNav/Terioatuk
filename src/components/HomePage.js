@@ -39,28 +39,28 @@ function TickerItem({ icon, label }) {
 
 export default function HomePage() {
   return (
-    <main id="top">
-      <section className="relative isolate min-h-[min(78vh,840px)] overflow-hidden bg-hero text-[#efeff0]">
+    <main id="top" className="min-w-0 overflow-x-clip">
+      <section className="relative isolate min-h-[min(78dvh,840px)] overflow-hidden bg-hero text-[#efeff0]">
         <HeroVideo />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(29,30,32,0.58)_0%,rgba(29,30,32,0.72)_48%,rgba(29,30,32,0.9)_100%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_35%,rgba(16,184,204,0.16),transparent_62%)]" />
-        <div className="relative mx-auto flex min-h-[min(78vh,840px)] max-w-[900px] flex-col justify-center px-6 py-[clamp(72px,10vw,140px)] text-center">
-          <p className="mb-[22px] font-mono text-[11.5px] tracking-[0.16em] text-cyan-bright uppercase">
+        <div className="relative mx-auto flex min-h-[min(78dvh,840px)] max-w-[900px] flex-col justify-center px-4 py-[clamp(64px,12vw,140px)] text-center sm:px-6">
+          <p className="mb-4 text-pretty font-mono text-[10.5px] leading-relaxed tracking-[0.12em] text-cyan-bright uppercase sm:mb-[22px] sm:text-[11.5px] sm:tracking-[0.16em]">
             Software development company in London · AI automation agency UK
           </p>
-          <h1 className="mb-6 text-balance font-sans text-[clamp(38px,5.6vw,72px)] font-bold leading-[1.04] tracking-[-0.035em] text-white">
+          <h1 className="mb-5 text-balance font-sans text-[clamp(32px,8.4vw,72px)] font-bold leading-[1.06] tracking-[-0.035em] text-white sm:mb-6 sm:leading-[1.04]">
             Software that ships.
             <br />
             <em className="italic text-cyan-bright">AI that earns its place.</em>
           </h1>
-          <p className="mx-auto mb-8 max-w-[60ch] text-pretty text-[clamp(16px,1.3vw,19px)] leading-[1.65] text-[#b0b2b6]">
+          <p className="mx-auto mb-7 max-w-[60ch] text-pretty text-[15.5px] leading-[1.65] text-[#b0b2b6] sm:mb-8 sm:text-[clamp(16px,1.3vw,19px)]">
             Terioat Infotech is a London-based software development company
             delivering custom software development, mobile app development and AI
             automation for UK enterprises — plus dedicated and white-label
             development teams for agencies. Delivery managed from London,
             engineered at offshore rates.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="mx-auto flex w-full max-w-sm flex-col justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap">
             <PrimaryButton href="/#quote">Get a quote</PrimaryButton>
             <GhostButton href="/#capabilities">See how we engage</GhostButton>
           </div>
@@ -68,11 +68,11 @@ export default function HomePage() {
       </section>
 
       <div className="overflow-hidden bg-bar py-4 text-[#dddee1]">
-        <div className="marquee-track flex w-max font-mono text-[12.5px] tracking-[0.14em] uppercase">
+        <div className="marquee-track flex w-max font-mono text-[11px] tracking-[0.12em] uppercase sm:text-[12.5px] sm:tracking-[0.14em]">
           {[0, 1].map((copy) => (
             <div
               key={copy}
-              className="flex gap-10 pr-10"
+              className="flex gap-6 pr-6 sm:gap-10 sm:pr-10"
               aria-hidden={copy === 1 ? true : undefined}
             >
               {TICKER.map(([icon, label]) => (
@@ -101,7 +101,7 @@ export default function HomePage() {
               <Link
                 key={service.title}
                 href="/#quote"
-                className={`relative flex flex-col overflow-hidden rounded-[14px] p-8 shadow-[0_1px_2px_rgba(20,20,20,0.04)] transition-shadow hover:shadow-[0_16px_34px_rgba(20,20,20,0.10)] ${
+                className={`relative flex min-h-0 flex-col overflow-hidden rounded-[14px] p-6 shadow-[0_1px_2px_rgba(20,20,20,0.04)] transition-shadow hover:shadow-[0_16px_34px_rgba(20,20,20,0.10)] sm:p-8 ${
                   service.featured
                     ? "border border-hero text-white"
                     : "border border-line bg-white text-ink hover:border-cyan-soft"
@@ -190,7 +190,7 @@ export default function HomePage() {
             {ABOUT_CARDS.map((card) => (
               <div
                 key={card.title}
-                className="grid content-start gap-3.5 rounded-[14px] border border-line bg-white px-[26px] py-7 transition-colors hover:border-cyan"
+                className="grid content-start gap-3.5 rounded-[14px] border border-line bg-white px-5 py-6 transition-colors hover:border-cyan sm:px-[26px] sm:py-7"
               >
                 <IconTile>
                   <Icon name={card.icon} />
@@ -227,7 +227,7 @@ export default function HomePage() {
                 {STACK_LOGOS.slice(0, 12).map((item, index) => (
                   <div
                     key={`${copy}-${item.name}-${index}`}
-                    className="flex h-[112px] w-[min(240px,70vw)] shrink-0 items-center justify-center border-t border-r border-b border-line bg-white px-8"
+                    className="stack-cell is-top"
                   >
                     <img
                       src={item.src}
@@ -245,7 +245,7 @@ export default function HomePage() {
                 {STACK_LOGOS.slice(12).map((item, index) => (
                   <div
                     key={`${copy}-${item.name}-${index}`}
-                    className="flex h-[112px] w-[min(240px,70vw)] shrink-0 items-center justify-center border-r border-b border-line bg-white px-8"
+                    className="stack-cell"
                   >
                     <img
                       src={item.src}
@@ -286,11 +286,11 @@ export default function HomePage() {
                     alt={item.label}
                     number={item.id}
                     caption={item.label}
-                    className="min-h-[330px] h-full"
+                    className="min-h-[240px] h-full sm:min-h-[330px]"
                   />
                 </div>
                 <div
-                  className={`grid content-center gap-4 p-[clamp(28px,3.2vw,48px)] ${
+                  className={`grid content-center gap-4 p-6 sm:p-[clamp(28px,3.2vw,48px)] ${
                     item.imageFirst ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
@@ -329,7 +329,7 @@ export default function HomePage() {
             {IMPACT.map((item) => (
               <div
                 key={item.stat}
-                className="grid content-start gap-3.5 rounded-[14px] border border-line bg-white px-[26px] py-7 shadow-[0_1px_2px_rgba(20,20,20,0.04)]"
+                className="grid content-start gap-3.5 rounded-[14px] border border-line bg-white px-5 py-6 shadow-[0_1px_2px_rgba(20,20,20,0.04)] sm:px-[26px] sm:py-7"
               >
                 <IconTile>
                   <Icon name={item.icon} />
@@ -351,7 +351,7 @@ export default function HomePage() {
               <Eyebrow>Portfolio</Eyebrow>
               <SectionTitle className="max-w-[18ch]">Our portfolio</SectionTitle>
             </div>
-            <QuoteCta className="self-start lg:self-end">See the portfolio</QuoteCta>
+            <QuoteCta className="w-full self-start sm:w-auto lg:self-end">See the portfolio</QuoteCta>
           </div>
         </Container>
         <WorkSlider />
@@ -368,7 +368,7 @@ export default function HomePage() {
             {CAPABILITY_COLUMNS.map((column) => (
               <div
                 key={column.title}
-                className="grid content-start gap-[18px] rounded-[14px] border border-line bg-white px-7 py-[30px] shadow-[0_1px_2px_rgba(20,20,20,0.04)]"
+                className="grid content-start gap-[18px] rounded-[14px] border border-line bg-white px-5 py-6 shadow-[0_1px_2px_rgba(20,20,20,0.04)] sm:px-7 sm:py-[30px]"
               >
                 <IconTile>
                   <Icon name={column.icon} />
@@ -404,7 +404,7 @@ export default function HomePage() {
               replace these three with your first posts.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-7 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {INSIGHTS.map((post) => (
               <Link
                 key={post.title}
@@ -441,7 +441,7 @@ export default function HomePage() {
             <h2 className="mb-[22px] font-sans text-[clamp(30px,3.6vw,46px)] font-bold leading-[1.12] tracking-[-0.035em]">
               What our clients say
             </h2>
-            <div className="inline-flex max-w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-[#e9eaea] bg-white px-[22px] py-[11px] whitespace-nowrap shadow-[0_1px_2px_rgba(20,20,20,0.05)]">
+            <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-3 gap-y-1.5 rounded-full border border-[#e9eaea] bg-white px-4 py-2.5 shadow-[0_1px_2px_rgba(20,20,20,0.05)] sm:px-[22px] sm:py-[11px]">
               <GoogleMark />
               <span className="text-[17px] font-bold tracking-[-0.02em]">4.9</span>
               <span className="text-[15px] tracking-widest text-[#f5a623]">★★★★★</span>
@@ -457,14 +457,14 @@ export default function HomePage() {
             {REVIEWS.map((review) => (
               <article
                 key={review.name}
-                className="grid content-start gap-[18px] rounded-2xl border border-[#e9eaea] bg-white px-[26px] py-6 shadow-[0_1px_2px_rgba(20,20,20,0.04)]"
+                className="grid content-start gap-[18px] rounded-2xl border border-[#e9eaea] bg-white px-5 py-5 shadow-[0_1px_2px_rgba(20,20,20,0.04)] sm:px-[26px] sm:py-6"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-[15px] tracking-widest text-[#f5a623]">★★★★★</span>
                   <GoogleMark />
                 </div>
                 <p className="m-0 text-[15.5px] leading-[1.65]">&ldquo;{review.quote}&rdquo;</p>
-                <div className="flex flex-nowrap items-center justify-between gap-3">
+                <div className="flex flex-wrap items-end justify-between gap-x-3 gap-y-2">
                   <div className="flex min-w-0 flex-1 items-center gap-3">
                     <span
                       className={`relative block h-11 w-11 shrink-0 overflow-hidden rounded-full ${review.tint}`}

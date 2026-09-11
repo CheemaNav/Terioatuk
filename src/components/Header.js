@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { NAV, SITE } from "@/lib/site";
 import { Icon } from "./Icons";
@@ -10,7 +10,7 @@ const MENUS = ["what", "who", "about"];
 
 function MenuLinks({ item, onNavigate }) {
   return (
-    <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-8 px-6 py-[34px] pb-[38px] sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(190px,1fr))] lg:gap-x-10">
+    <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-8 px-4 py-7 sm:grid-cols-2 sm:px-6 sm:py-[34px] sm:pb-[38px] lg:grid-cols-[repeat(auto-fit,minmax(190px,1fr))] lg:gap-x-10 lg:px-8">
       {item.columns.map((column) => (
         <div key={column.title}>
           <p className="eyebrow mb-3.5 text-faint">{column.title}</p>
@@ -37,6 +37,8 @@ function MenuLinks({ item, onNavigate }) {
 export default function Header() {
   const [menu, setMenu] = useState(null);
   const [open, setOpen] = useState(false);
+  const [barHeight, setBarHeight] = useState(0);
+  const barRef = useRef(null);
   const navId = useId();
 
   useEffect(() => {
@@ -51,11 +53,33 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    function measure() {
+      if (!barRef.current) return;
+      setBarHeight(Math.round(barRef.current.getBoundingClientRect().bottom));
+    }
+    measure();
+    window.addEventListener("resize", measure);
+    window.addEventListener("scroll", measure, { passive: true });
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", measure);
+    };
+  }, [open]);
+
+  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  useEffect(() => {
+    function onResize() {
+      if (window.matchMedia("(min-width: 1024px)").matches) setOpen(false);
+    }
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   function closeAll() {
     setMenu(null);
@@ -63,27 +87,32 @@ export default function Header() {
   }
 
   return (
+    <>
     <header
+      ref={barRef}
       onMouseLeave={() => setMenu(null)}
-      className="sticky top-0 z-50 border-b border-line bg-white"
+      className="sticky top-0 z-50 border-b border-line bg-white pt-[env(safe-area-inset-top)]"
     >
-      <div className="bg-bar text-[13px] tracking-[0.02em] text-[#b7b9bc]">
-        <Container className="flex flex-wrap items-center justify-between gap-x-7 gap-y-2 py-[9px]">
-          <span className="font-mono text-[11px] tracking-[0.14em] uppercase">
+      <div className="bg-bar text-[12px] tracking-[0.02em] text-[#b7b9bc] sm:text-[13px]">
+        <Container className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1.5 py-2 sm:gap-x-7 sm:py-[9px]">
+          <span className="font-mono text-[10px] tracking-[0.14em] uppercase sm:text-[11px]">
             United Kingdom
           </span>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <a href={SITE.phoneHref} className="text-[#e9eaeb] hover:text-white">
+          <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1 sm:gap-x-6">
+            <a href={SITE.phoneHref} className="whitespace-nowrap text-[#e9eaeb] hover:text-white">
               {SITE.phone}
             </a>
-            <a href={SITE.emailHref} className="text-[#e9eaeb] hover:text-white">
+            <a
+              href={SITE.emailHref}
+              className="hidden min-w-0 truncate text-[#e9eaeb] hover:text-white sm:inline"
+            >
               {SITE.email}
             </a>
           </div>
         </Container>
       </div>
 
-      <Container className="flex items-center justify-between gap-8 py-3.5">
+      <Container className="flex items-center justify-between gap-3 py-3 sm:gap-8 sm:py-3.5">
         <Link href="/#top" onClick={closeAll} className="shrink-0">
           <Logo height={40} priority />
         </Link>
@@ -144,13 +173,15 @@ export default function Header() {
           <MenuLinks item={NAV[menu]} onNavigate={() => setMenu(null)} />
         </div>
       ) : null}
+    </header>
 
       {open ? (
         <div
           id="mobile-nav"
-          className="max-h-[calc(100dvh-5.5rem)] overflow-y-auto border-t border-line bg-white lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto border-t border-line bg-white lg:hidden"
+          style={{ top: barHeight }}
         >
-          <div className="grid gap-7 px-6 py-6">
+          <div className="grid gap-7 px-6 py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
             {MENUS.map((key) => (
               <div key={key}>
                 <p className="eyebrow mb-3">{NAV[key].label}</p>
@@ -182,10 +213,10 @@ export default function Header() {
             <Link href="/#faq" onClick={closeAll} className="text-[15px] font-medium">
               FAQ
             </Link>
-            <QuoteCta className="w-full" />
+            <QuoteCta className="w-full min-h-12" />
           </div>
         </div>
       ) : null}
-    </header>
+    </>
   );
 }

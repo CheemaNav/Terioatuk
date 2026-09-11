@@ -17,7 +17,7 @@ function Field({ label, children }) {
 }
 
 const inputClass =
-  "rounded-[10px] border border-line-strong bg-[#fafafa] px-[13px] py-3 text-[15px] text-ink outline-none transition-colors focus:border-teal";
+  "w-full min-h-12 rounded-[10px] border border-line-strong bg-[#fafafa] px-[13px] py-3 text-base text-ink outline-none transition-colors focus:border-teal";
 
 export default function QuoteForm() {
   const [values, setValues] = useState(EMPTY);
@@ -80,7 +80,7 @@ export default function QuoteForm() {
             </ContactLine>
           </div>
         </div>
-        <div className="rounded-2xl border border-[#e1e2e2] bg-white p-[clamp(26px,3vw,38px)] text-ink shadow-[0_14px_34px_rgba(20,20,20,0.06)]">
+        <div className="rounded-2xl border border-[#e1e2e2] bg-white p-5 text-ink shadow-[0_14px_34px_rgba(20,20,20,0.06)] sm:p-[clamp(26px,3vw,38px)]">
           {sent ? (
             <div className="flex min-h-[360px] flex-col justify-center gap-3.5">
               <p className="eyebrow m-0">Received</p>
@@ -158,7 +158,7 @@ export default function QuoteForm() {
               <button
                 type="submit"
                 disabled={pending}
-                className="justify-self-start cursor-pointer rounded-[10px] border-0 bg-ink px-[22px] py-[15px] font-medium text-white transition-colors hover:bg-cyan hover:text-[#14262a] disabled:opacity-60"
+                className="w-full min-h-12 cursor-pointer rounded-[10px] border-0 bg-ink px-[22px] py-[15px] font-medium text-white transition-colors hover:bg-cyan hover:text-[#14262a] disabled:opacity-60 sm:w-auto sm:justify-self-start"
               >
                 {pending ? "Sending…" : "Request a quote"}
               </button>

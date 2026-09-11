@@ -25,7 +25,15 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 6.5rem;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 @layer base {
@@ -45,6 +53,19 @@ html {
   button {
     font: inherit;
     cursor: pointer;
+  }
+
+  img:not([data-nimg="fill"]),
+  video,
+  svg {
+    max-width: 100%;
+  }
+
+  input,
+  textarea,
+  select {
+    font: inherit;
+    max-width: 100%;
   }
 }
 
@@ -111,9 +132,11 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-inline: max(1.25rem, calc((100% - min(62rem, 82vw)) / 2));
+  padding-inline: max(1rem, calc((100% - min(62rem, 82vw)) / 2));
   cursor: grab;
   user-select: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
 }
 
 .work-scroller:active {
@@ -127,6 +150,8 @@ html {
 .work-slide {
   position: relative;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   flex: 0 0 min(62rem, 82vw);
   aspect-ratio: 16 / 9;
   min-height: 280px;
@@ -145,6 +170,66 @@ html {
 .work-slide.is-active {
   transform: scale(1);
   opacity: 1;
+}
+
+.stack-cell {
+  display: flex;
+  height: 88px;
+  width: min(200px, 78vw);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #e4e4e2;
+  border-bottom: 1px solid #e4e4e2;
+  background: #fff;
+  padding-inline: 1rem;
+}
+
+.stack-cell.is-top {
+  border-top: 1px solid #e4e4e2;
+}
+
+@media (min-width: 640px) {
+  .stack-cell {
+    height: 112px;
+    width: min(240px, 70vw);
+    padding-inline: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 7.25rem;
+  }
+
+  .work-scroller {
+    gap: 12px;
+    padding-inline: 1rem;
+  }
+
+  .work-slide {
+    flex-basis: calc(100vw - 2rem);
+    max-width: calc(100vw - 2rem);
+    aspect-ratio: 4 / 5;
+    min-height: 26rem;
+    border-radius: 16px;
+    transform: none;
+    opacity: 1;
+  }
+
+  .work-slide.is-active {
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .work-scroller {
+    padding-inline: max(1.25rem, calc((100% - min(42rem, 86vw)) / 2));
+  }
+
+  .work-slide {
+    flex-basis: min(42rem, 86vw);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

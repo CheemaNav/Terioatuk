@@ -8,9 +8,9 @@ export default function ChatWidget() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed right-5 bottom-5 z-[80] flex flex-col items-end gap-3">
+    <div className="fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-[80] flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3">
       {open ? (
-        <div className="w-[300px] overflow-hidden rounded-2xl border border-line bg-white shadow-[0_20px_44px_rgba(20,20,20,0.16)]">
+        <div className="w-[min(20rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-line bg-white shadow-[0_20px_44px_rgba(20,20,20,0.16)]">
           <div className="flex items-center justify-between gap-3 bg-hero px-[18px] py-4 text-white">
             <div>
               <p className="m-0 text-[15px] font-semibold">Terioat Infotech</p>
@@ -45,7 +45,7 @@ export default function ChatWidget() {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="flex items-center gap-2.5 rounded-full bg-cyan px-5 py-[13px] font-semibold text-navy shadow-[0_10px_26px_rgba(16,184,204,0.35)] transition-colors hover:bg-teal hover:text-white"
+        className="flex min-h-12 items-center gap-2.5 rounded-full bg-cyan px-4 py-[13px] text-[15px] font-semibold text-navy shadow-[0_10px_26px_rgba(16,184,204,0.35)] transition-colors hover:bg-teal hover:text-white sm:px-5"
       >
         <Icon name="chat" size={18} />
         Chat with us

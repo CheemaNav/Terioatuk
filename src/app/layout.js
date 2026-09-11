@@ -19,6 +19,12 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#ffffff",
+};
+
 export const metadata = {
   metadataBase: new URL(SITE.url),
   title:

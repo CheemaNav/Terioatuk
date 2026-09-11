@@ -21,7 +21,7 @@ const COMPANY = [
 
 export default function Footer() {
   return (
-    <footer className="bg-hero text-[#9a9ca0]">
+    <footer className="bg-hero pb-[calc(5.5rem+env(safe-area-inset-bottom))] text-[#9a9ca0] md:pb-[env(safe-area-inset-bottom)]">
       <Container className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-14 lg:py-20">
         <div>
           <Logo inverted height={36} className="mb-5" />
@@ -30,7 +30,7 @@ export default function Footer() {
             partner working with enterprises and agencies — custom software,
             mobile apps, AI agents and dedicated teams.
           </p>
-          <a href={SITE.emailHref} className="text-[15px] text-white transition-colors duration-200 hover:text-cyan-bright">
+          <a href={SITE.emailHref} className="break-all text-[15px] text-white transition-colors duration-200 hover:text-cyan-bright">
             {SITE.email}
           </a>
         </div>
@@ -83,7 +83,7 @@ export default function Footer() {
             </li>
             <li className="flex gap-3">
               <Icon name="mail" size={16} className="mt-[3px] shrink-0 text-cyan-bright" />
-              <a href={SITE.emailHref} className="text-white transition-colors duration-200 hover:text-cyan-bright">
+              <a href={SITE.emailHref} className="break-all text-white transition-colors duration-200 hover:text-cyan-bright">
                 {SITE.email}
               </a>
             </li>

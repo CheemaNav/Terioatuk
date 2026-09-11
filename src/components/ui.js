@@ -13,8 +13,8 @@ export function Logo({ height = 40, inverted = false, priority = false, classNam
         alt="Terioat Infotech — software development company London"
         width={width}
         height={height}
-        className="block h-full w-auto"
-        style={{ height, width: "auto" }}
+        className="block h-8 w-auto sm:h-10"
+        style={{ width: "auto" }}
         priority={priority}
       />
     </span>
@@ -23,7 +23,7 @@ export function Logo({ height = 40, inverted = false, priority = false, classNam
 
 export function Container({ children, className = "" }) {
   return (
-    <div className={`mx-auto w-full max-w-[1440px] px-6 ${className}`}>
+    <div className={`mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8 ${className}`}>
       {children}
     </div>
   );
@@ -66,7 +66,7 @@ export function PrimaryButton({ href, children, className = "" }) {
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-[10px] bg-cyan px-[30px] py-4 font-semibold text-navy transition-colors duration-200 hover:bg-white hover:text-navy ${className}`}
+      className={`inline-flex min-h-12 w-full items-center justify-center rounded-[10px] bg-cyan px-6 py-3.5 text-center font-semibold text-navy transition-colors duration-200 hover:bg-white hover:text-navy sm:w-auto sm:px-[30px] sm:py-4 ${className}`}
     >
       {children}
     </Link>
@@ -77,7 +77,7 @@ export function GhostButton({ href, children, className = "" }) {
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-[10px] border border-[#55575B] px-[30px] py-4 font-medium text-white transition-colors duration-200 hover:border-cyan-bright hover:text-cyan-bright ${className}`}
+      className={`inline-flex min-h-12 w-full items-center justify-center rounded-[10px] border border-[#55575B] px-6 py-3.5 text-center font-medium text-white transition-colors duration-200 hover:border-cyan-bright hover:text-cyan-bright sm:w-auto sm:px-[30px] sm:py-4 ${className}`}
     >
       {children}
     </Link>
@@ -88,7 +88,7 @@ export function QuoteCta({ children = "Get a quote", className = "", ...props })
   return (
     <Link
       href="/#quote"
-      className={`inline-flex items-center justify-center rounded-[10px] bg-cyan px-[22px] py-3 text-[15px] font-semibold text-navy transition-colors duration-200 hover:bg-teal hover:text-white ${className}`}
+      className={`inline-flex min-h-11 items-center justify-center rounded-[10px] bg-cyan px-5 py-3 text-[15px] font-semibold text-navy transition-colors duration-200 hover:bg-teal hover:text-white sm:px-[22px] ${className}`}
       {...props}
     >
       {children}
@@ -121,7 +121,7 @@ export function MediaPanel({
   overlay = true,
 }) {
   return (
-    <div className={`relative min-h-[230px] overflow-hidden bg-hero text-[#efeff0] ${className}`}>
+    <div className={`relative min-h-[200px] overflow-hidden bg-hero text-[#efeff0] sm:min-h-[230px] ${className}`}>
       {src ? (
         <Image
           src={src}
@@ -132,14 +132,14 @@ export function MediaPanel({
         />
       ) : null}
       {overlay && (number || caption) ? (
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-b from-transparent via-[rgba(29,30,32,0.45)] to-[rgba(29,30,32,0.88)] px-[30px] py-[26px]">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-b from-transparent via-[rgba(29,30,32,0.45)] to-[rgba(29,30,32,0.88)] px-5 py-5 sm:px-[30px] sm:py-[26px]">
           {number ? (
-            <p className="m-0 font-sans text-[60px] font-bold leading-[0.88] tracking-[-0.045em] text-white/40">
+            <p className="m-0 font-sans text-[clamp(40px,8vw,60px)] font-bold leading-[0.88] tracking-[-0.045em] text-white/40">
               {number}
             </p>
           ) : null}
           {caption ? (
-            <p className="mt-1.5 mb-0 font-sans text-[23px] font-bold tracking-[-0.03em] text-white">
+            <p className="mt-1.5 mb-0 font-sans text-[clamp(18px,3vw,23px)] font-bold tracking-[-0.03em] text-white">
               {caption}
             </p>
           ) : null}
@@ -151,9 +151,9 @@ export function MediaPanel({
 
 export function ContactLine({ icon, label, children }) {
   return (
-    <div className="flex gap-3 text-[15.5px] text-ink-soft">
+    <div className="flex min-w-0 gap-3 text-[15.5px] text-ink-soft">
       <span className="mt-0.5 shrink-0 text-teal">{icon}</span>
-      <span>
+      <span className="min-w-0 break-words">
         {label ? (
           <span className="mb-1 block font-mono text-[11px] tracking-[0.16em] text-teal uppercase">
             {label}
