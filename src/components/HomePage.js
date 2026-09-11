@@ -41,6 +41,10 @@ export default function HomePage() {
             <br />
             <em className="italic text-cyan">AI that earns its place.</em>
           </h1>
+          <h2 className="mx-auto mb-5 max-w-[60ch] text-pretty text-[15.5px] font-semibold leading-[1.65] text-[#c5c9cd] sm:mb-6 sm:text-[clamp(16px,1.3vw,19px)]">
+            Custom software development, AI automation and dedicated teams for UK
+            enterprises and agencies.
+          </h2>
           <p className="mx-auto mb-7 max-w-[60ch] text-pretty text-[15.5px] leading-[1.65] text-[#c5c9cd] sm:mb-8 sm:text-[clamp(16px,1.3vw,19px)]">
             Terioat Infotech is a London-based software development company
             delivering custom software development, mobile app development and AI
@@ -73,9 +77,9 @@ export default function HomePage() {
               <SectionTitle>Six practices, one accountable delivery team</SectionTitle>
             </div>
             <p className="m-0 max-w-[44ch] text-[16.5px] leading-[1.65] text-muted">
-              Engage one practice or the whole stack. Scope, contracts and
-              escalation stay with your UK account lead — no handoffs between
-              vendors.
+              A custom software development company for UK buyers: engage one
+              practice or the whole stack. Scope, contracts and escalation stay
+              with your UK account lead — no handoffs between vendors.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -150,10 +154,11 @@ export default function HomePage() {
             </div>
             <div>
               <p className="mb-4 text-pretty text-[16.5px] leading-[1.7] text-ink-soft">
-                Terioat Infotech works with UK enterprises and the agencies that
-                serve them. Fixed-scope statements of work, named engineers, code
-                and IP assigned to you on completion, and documentation your own
-                team can pick up.
+                Terioat Infotech works with UK enterprises, mid-market companies
+                and digital agencies. We build software for legal firms, logistics
+                operators and removals companies — fixed-scope statements of work,
+                named engineers, code and IP assigned to you on completion, and
+                documentation your own team can pick up.
               </p>
               <p className="mb-6 text-pretty text-[16.5px] leading-[1.7] text-ink-soft">
                 We keep the commercial relationship in the UK and the build cost

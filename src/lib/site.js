@@ -63,12 +63,12 @@ export const NAV = {
       {
         title: "Industries",
         links: [
+          ["Legal services", "/#work"],
+          ["Logistics", "/#work"],
+          ["Removals", "/#work"],
           ["E-commerce & retail", "/#work"],
-          ["Logistics & field service", "/#work"],
           ["Healthcare", "/#work"],
           ["Financial services", "/#work"],
-          ["Education", "/#stack"],
-          ["Property & rentals", "/#work"],
         ],
       },
       {
@@ -122,32 +122,32 @@ export const SERVICES = [
     featured: true,
     icon: "agent",
     title: "AI automation & agents",
-    body: "Agents and workflow automation grounded in your own data and integrated with the CRM, ERP and inboxes your team already uses.",
+    body: "We develop AI agents for UK operations — workflow automation grounded in your own data and integrated with the CRM, ERP and inboxes your team already uses.",
   },
   {
     icon: "code",
     title: "Custom software & web apps",
-    body: "Portals, marketplaces and internal platforms on Laravel, Node and React — built for audit, access control and scale.",
+    body: "Custom web application development for UK teams: portals, marketplaces and internal platforms on Laravel, Node and React — built for audit, access control and scale.",
   },
   {
     icon: "phone",
     title: "Mobile app development",
-    body: "Native and cross-platform iOS and Android, from MVP through store release, monitoring and iteration.",
+    body: "Mobile app development for UK product teams — native and cross-platform iOS and Android, from MVP through store release, monitoring and iteration.",
   },
   {
     icon: "people",
     title: "Dedicated & white-label teams",
-    body: "Vetted engineers embedded in your sprints, under your brand if you are an agency. Monthly rolling, UK hours overlap.",
+    body: "A dedicated development team for UK clients: vetted engineers embedded in your sprints, under your brand if you are an agency. Monthly rolling, UK hours overlap.",
   },
   {
     icon: "growth",
     title: "Search & digital growth",
-    body: "Technical SEO, paid media and content for UK search — including how your brand surfaces inside AI assistants.",
+    body: "Technical SEO for UK search, plus paid media and content — including how your brand surfaces inside AI assistants.",
   },
   {
     icon: "server",
     title: "Ready-made platforms",
-    body: "LMS, CRM, warehouse and inventory systems you can licence and configure instead of building from zero.",
+    body: "LMS platforms for UK teams you can licence and configure, with CRM, warehouse and inventory systems, instead of building from zero.",
   },
 ];
 
@@ -426,11 +426,11 @@ export const JSON_LD = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ProfessionalService",
+      "@type": ["ProfessionalService", "LocalBusiness", "Organization"],
       "@id": "https://terioatinfotech.com/#org",
       name: "Terioat Infotech",
       description:
-        "Software development company in London providing custom software development, mobile app development, AI automation and dedicated development teams across the UK.",
+        "London-based software development and AI automation agency providing custom software development, mobile apps, AI agents and dedicated teams for UK enterprises, agencies, legal firms, logistics operators and removals companies.",
       url: "https://terioatinfotech.com/",
       telephone: "+44-7836-615480",
       email: "info@terioatinfotech.com",
@@ -438,6 +438,7 @@ export const JSON_LD = {
       address: {
         "@type": "PostalAddress",
         addressLocality: "London",
+        addressRegion: "England",
         addressCountry: "GB",
       },
       areaServed: [
@@ -457,7 +458,26 @@ export const JSON_LD = {
         "AI agent development",
         "Web application development",
         "Dedicated development teams",
+        "White-label software development",
+        "Technical SEO",
+        "LMS platforms",
+        "CRM software",
+        "Software for legal firms",
+        "Logistics software",
+        "Software for removals companies",
       ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Software development and AI automation",
+        itemListElement: [
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI automation and agents" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom software and web applications" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobile app development" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dedicated and white-label development teams" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Technical SEO and digital growth" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "LMS and CRM platforms" } },
+        ],
+      },
     },
     {
       "@type": "FAQPage",

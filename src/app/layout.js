@@ -27,10 +27,9 @@ export const viewport = {
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
-  title:
-    "Software Development Company in London, UK | AI Automation Agency — Terioat Infotech",
+  title: "Custom Software & AI Automation Agency London | Terioat Infotech",
   description:
-    "Terioat Infotech is a UK software development company in London — custom software development, mobile app development, AI automation and AI agent development, plus dedicated and white-label development teams. Get a quote in 2 working days.",
+    "AI automation, custom software development, mobile apps and dedicated teams for UK enterprises and agencies. Based in London.",
   robots: {
     index: true,
     follow: true,
@@ -42,9 +41,9 @@ export const metadata = {
     locale: "en_GB",
     siteName: "Terioat Infotech",
     url: "/",
-    title: "Software Development Company in London, UK | Terioat Infotech",
+    title: "Custom Software & AI Automation Agency London | Terioat Infotech",
     description:
-      "Custom software development, mobile apps, AI automation and dedicated development teams for UK enterprises and agencies.",
+      "AI automation, custom software development, mobile apps and dedicated teams for UK enterprises and agencies. Based in London.",
     images: [
       {
         url: "/og.jpg",
@@ -56,9 +55,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Software Development Company in London, UK | Terioat Infotech",
+    title: "Custom Software & AI Automation Agency London | Terioat Infotech",
     description:
-      "Custom software development, mobile apps, AI automation and dedicated development teams for UK enterprises and agencies.",
+      "AI automation, custom software development, mobile apps and dedicated teams for UK enterprises and agencies. Based in London.",
     images: ["/og.jpg"],
   },
   icons: {
