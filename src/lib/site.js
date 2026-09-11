@@ -1,8 +1,9 @@
 export const SITE = {
   name: "Terioat Infotech",
   url: "https://terioatinfotech.com",
-  phone: "+44 20 3410 2255",
-  phoneHref: "tel:+442034102255",
+  phone: "+44 7836 615480",
+  phoneHref: "tel:+447836615480",
+  whatsappHref: "https://wa.me/447836615480",
   email: "info@terioatinfotech.com",
   emailHref: "mailto:info@terioatinfotech.com",
   addressLine: "Add your registered London address here",
@@ -115,16 +116,6 @@ export const NAV = {
     },
   },
 };
-
-export const TICKER = [
-  ["code", "Custom software"],
-  ["agent", "AI agents & automation"],
-  ["phone", "iOS & Android apps"],
-  ["people", "White-label engineering"],
-  ["people", "Dedicated teams"],
-  ["growth", "Search & growth"],
-  ["shield", "UK GDPR aware delivery"],
-];
 
 export const SERVICES = [
   {
@@ -268,14 +259,6 @@ export const IMPACT = [
 
 export const CASES = [
   {
-    kicker: "Hospitality · Ubud, Bali",
-    title: "Lemuria – The Lost City",
-    body: "Live site for Ubud’s immersive dinner show, Oracle of Spice restaurant and Lost Baths & Sauna — tickets, weekend bundles and concierge in one place.",
-    stack: "WordPress",
-    image: "/images/portfoio/lemuria.jpg",
-    href: "https://lemuria.asia/",
-  },
-  {
     kicker: "Removals · London, UK",
     title: "Magnus Removals",
     body: "Live site for a family-run London removal company — house, commercial and long-distance moves, packing, storage and clearance, with quotes and coverage across the South East.",
@@ -364,55 +347,49 @@ export const REVIEWS = [
     quote:
       "They rebuilt our site and rankings jumped within weeks. Communication was excellent throughout.",
     name: "Sarah Whitfield",
-    role: "Founder, Meadowview Interiors",
+    role: "Founder, Meadowview Interiors, London",
     initials: "SW",
-    photo: "/images/review-sarah.jpg",
     when: "2 weeks ago",
     tint: "bg-[#E3EDF7]",
   },
   {
-    quote:
-      "Our PPC spend finally pays for itself. The reporting is clear and the team is genuinely proactive.",
-    name: "James Okafor",
-    role: "Marketing Manager, Fleetline Logistics",
-    initials: "JO",
-    photo: "/images/review-james.jpg",
-    when: "1 month ago",
-    tint: "bg-[#E8F3EC]",
-  },
-  {
-    quote: "The app launch went smoothly and support since has been fast and reliable.",
-    name: "Priya Anand",
-    role: "Operations Director, Harrow & Co",
-    initials: "PA",
-    photo: "/images/review-priya.jpg",
-    when: "1 month ago",
-    tint: "bg-[#F3EAF7]",
-  },
-  {
     quote: "Fixed pricing, no surprises, and a project manager who actually kept us updated.",
     name: "Tom Fletcher",
-    role: "CEO, Fletcher Home Goods",
+    role: "Managing Director, Fletcher Home Goods, Manchester",
     initials: "TF",
-    photo: "/images/review-tom.jpg",
     when: "2 months ago",
     tint: "bg-[#F7F0E3]",
   },
   {
     quote: "Responsive, organised and genuinely invested in our results. Highly recommend.",
     name: "Emma Clarke",
-    role: "Director, Clarke & Bell Accountants",
+    role: "Director, Clarke & Bell Accountants, Bristol",
     initials: "EC",
-    photo: "/images/review-emma.jpg",
     when: "3 months ago",
     tint: "bg-[#EAF1F7]",
   },
   {
+    quote:
+      "Our PPC spend finally pays for itself. The reporting is clear and the team is genuinely proactive.",
+    name: "James Hartley",
+    role: "Marketing Manager, Fleetline Logistics, Leeds",
+    initials: "JH",
+    when: "1 month ago",
+    tint: "bg-[#E8F3EC]",
+  },
+  {
+    quote: "The app launch went smoothly and support since has been fast and reliable.",
+    name: "Lucy Bennett",
+    role: "Operations Director, Harrow & Co, Birmingham",
+    initials: "LB",
+    when: "1 month ago",
+    tint: "bg-[#F3EAF7]",
+  },
+  {
     quote: "Our new site loads fast and looks great on mobile. Bookings have gone up since launch.",
-    name: "Daniel Osei",
-    role: "Owner, Osei Property Group",
-    initials: "DO",
-    photo: "/images/review-daniel.jpg",
+    name: "Oliver Grant",
+    role: "Owner, Grant Property Group, Edinburgh",
+    initials: "OG",
     when: "3 months ago",
     tint: "bg-[#EDEEEE]",
   },
@@ -455,7 +432,7 @@ export const JSON_LD = {
       description:
         "Software development company in London providing custom software development, mobile app development, AI automation and dedicated development teams across the UK.",
       url: "https://terioatinfotech.com/",
-      telephone: "+44-20-3410-2255",
+      telephone: "+44-7836-615480",
       email: "info@terioatinfotech.com",
       image: "https://terioatinfotech.com/terioat-logo.webp",
       address: {

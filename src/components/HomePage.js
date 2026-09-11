@@ -9,17 +9,14 @@ import {
   REVIEWS,
   SERVICES,
   STACK_LOGOS,
-  TICKER,
 } from "@/lib/site";
 import { GoogleMark, Icon } from "./Icons";
 import {
   Container,
   Eyebrow,
-  GhostButton,
   QuoteCta,
   IconTile,
   MediaPanel,
-  PrimaryButton,
   SectionTitle,
   TextLink,
 } from "./ui";
@@ -28,22 +25,13 @@ import QuoteForm from "./QuoteForm";
 import HeroVideo from "./HeroVideo";
 import WorkSlider from "./WorkSlider";
 
-function TickerItem({ icon, label }) {
-  return (
-    <span className="inline-flex items-center gap-2.5">
-      <Icon name={icon} size={16} className="text-cyan-bright" />
-      {label}
-    </span>
-  );
-}
-
 export default function HomePage() {
   return (
     <main id="top" className="min-w-0 overflow-x-clip">
       <section className="relative isolate min-h-[min(78dvh,840px)] overflow-hidden bg-hero text-[#efeff0]">
         <HeroVideo />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(29,30,32,0.58)_0%,rgba(29,30,32,0.72)_48%,rgba(29,30,32,0.9)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_35%,rgba(16,184,204,0.16),transparent_62%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(29,30,32,0.48)_0%,rgba(29,30,32,0.68)_48%,rgba(29,30,32,0.9)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_55%_at_50%_18%,rgba(16,184,204,0.12),transparent_60%)]" />
         <div className="relative mx-auto flex min-h-[min(78dvh,840px)] max-w-[900px] flex-col justify-center px-4 py-[clamp(64px,12vw,140px)] text-center sm:px-6">
           <p className="mb-4 text-pretty font-mono text-[10.5px] leading-relaxed tracking-[0.12em] text-cyan-bright uppercase sm:mb-[22px] sm:text-[11.5px] sm:tracking-[0.16em]">
             Software development company in London · AI automation agency UK
@@ -51,9 +39,9 @@ export default function HomePage() {
           <h1 className="mb-5 text-balance font-sans text-[clamp(32px,8.4vw,72px)] font-bold leading-[1.06] tracking-[-0.035em] text-white sm:mb-6 sm:leading-[1.04]">
             Software that ships.
             <br />
-            <em className="italic text-cyan-bright">AI that earns its place.</em>
+            <em className="italic text-cyan">AI that earns its place.</em>
           </h1>
-          <p className="mx-auto mb-7 max-w-[60ch] text-pretty text-[15.5px] leading-[1.65] text-[#b0b2b6] sm:mb-8 sm:text-[clamp(16px,1.3vw,19px)]">
+          <p className="mx-auto mb-7 max-w-[60ch] text-pretty text-[15.5px] leading-[1.65] text-[#c5c9cd] sm:mb-8 sm:text-[clamp(16px,1.3vw,19px)]">
             Terioat Infotech is a London-based software development company
             delivering custom software development, mobile app development and AI
             automation for UK enterprises — plus dedicated and white-label
@@ -61,27 +49,21 @@ export default function HomePage() {
             engineered at offshore rates.
           </p>
           <div className="mx-auto flex w-full max-w-sm flex-col justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap">
-            <PrimaryButton href="/#quote">Get a quote</PrimaryButton>
-            <GhostButton href="/#capabilities">See how we engage</GhostButton>
+            <Link
+              href="/#quote"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-[10px] bg-white px-6 py-3.5 text-center font-semibold text-navy transition-colors duration-200 hover:bg-cyan hover:text-navy sm:w-auto sm:px-[30px] sm:py-4"
+            >
+              Get a quote
+            </Link>
+            <Link
+              href="/#capabilities"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-[10px] border border-white/40 px-6 py-3.5 text-center font-medium text-white transition-colors duration-200 hover:border-cyan-bright hover:text-cyan-bright sm:w-auto sm:px-[30px] sm:py-4"
+            >
+              See how we engage
+            </Link>
           </div>
         </div>
       </section>
-
-      <div className="overflow-hidden bg-bar py-4 text-[#dddee1]">
-        <div className="marquee-track flex w-max font-mono text-[11px] tracking-[0.12em] uppercase sm:text-[12.5px] sm:tracking-[0.14em]">
-          {[0, 1].map((copy) => (
-            <div
-              key={copy}
-              className="flex gap-6 pr-6 sm:gap-10 sm:pr-10"
-              aria-hidden={copy === 1 ? true : undefined}
-            >
-              {TICKER.map(([icon, label]) => (
-                <TickerItem key={`${copy}-${label}`} icon={icon} label={label} />
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
 
       <section id="services" className="border-b border-line bg-white">
         <Container className="py-[clamp(56px,7vw,104px)]">
@@ -445,7 +427,7 @@ export default function HomePage() {
               <GoogleMark />
               <span className="text-[17px] font-bold tracking-[-0.02em]">4.9</span>
               <span className="text-[15px] tracking-widest text-[#f5a623]">★★★★★</span>
-              <span className="text-[14.5px] text-muted">187 Google reviews</span>
+              <span className="text-[14.5px] text-muted">18 Google reviews</span>
             </div>
             <div className="mt-3.5">
               <Link href="/#quote" className="text-[14.5px] font-semibold text-teal">
@@ -453,7 +435,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             {REVIEWS.map((review) => (
               <article
                 key={review.name}
@@ -467,21 +449,9 @@ export default function HomePage() {
                 <div className="flex flex-wrap items-end justify-between gap-x-3 gap-y-2">
                   <div className="flex min-w-0 flex-1 items-center gap-3">
                     <span
-                      className={`relative block h-11 w-11 shrink-0 overflow-hidden rounded-full ${review.tint}`}
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[15px] font-semibold text-ink-soft ${review.tint}`}
                     >
-                      {review.photo ? (
-                        <Image
-                          src={review.photo}
-                          alt={review.name}
-                          fill
-                          sizes="44px"
-                          className="object-cover"
-                        />
-                      ) : (
-                        <span className="absolute inset-0 flex items-center justify-center text-[15px] font-semibold text-ink-soft">
-                          {review.initials}
-                        </span>
-                      )}
+                      {review.initials}
                     </span>
                     <span className="min-w-0">
                       <span className="block text-[15px] font-semibold tracking-[-0.01em]">
