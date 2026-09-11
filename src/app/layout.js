@@ -45,12 +45,21 @@ export const metadata = {
     title: "Software Development Company in London, UK | Terioat Infotech",
     description:
       "Custom software development, mobile apps, AI automation and dedicated development teams for UK enterprises and agencies.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 900,
+        alt: "Terioat Infotech",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Software Development Company in London, UK | Terioat Infotech",
     description:
       "Custom software development, mobile apps, AI automation and dedicated development teams for UK enterprises and agencies.",
+    images: ["/og.jpg"],
   },
   icons: {
     icon: [{ url: "/terioat_fav.png", type: "image/png" }],

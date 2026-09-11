@@ -43,7 +43,7 @@ export async function POST(request) {
     });
     if (!response.ok) {
       return Response.json(
-        { error: "We could not deliver that just now. Please email hello@terioatinfotech.com." },
+        { error: "We could not deliver that just now. Please email info@terioatinfotech.com." },
         { status: 502 },
       );
     }
