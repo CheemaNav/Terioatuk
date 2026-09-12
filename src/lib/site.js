@@ -63,12 +63,12 @@ export const NAV = {
       {
         title: "Industries",
         links: [
-          ["Legal services", "/#work"],
-          ["Logistics", "/#work"],
-          ["Removals", "/#work"],
-          ["E-commerce & retail", "/#work"],
-          ["Healthcare", "/#work"],
-          ["Financial services", "/#work"],
+          ["Legal services", "/portfolio"],
+          ["Logistics", "/portfolio"],
+          ["Removals", "/portfolio"],
+          ["E-commerce & retail", "/portfolio"],
+          ["Healthcare", "/portfolio"],
+          ["Financial services", "/portfolio"],
         ],
       },
       {
@@ -89,13 +89,13 @@ export const NAV = {
   },
   about: {
     label: "Who we are",
-    href: "/#about",
+    href: "/about",
     columns: [
       {
         title: "Company",
         links: [
-          ["About us", "/#about"],
-          ["Our work", "/#work"],
+          ["About us", "/about"],
+          ["Our work", "/portfolio"],
           ["Capabilities", "/#stack"],
           ["Careers", "/#quote"],
         ],
@@ -104,8 +104,8 @@ export const NAV = {
         title: "Spotlight",
         links: [
           ["Insights & guides", "/#insights"],
-          ["Client stories", "/#work"],
-          ["Contact the UK team", "/#quote"],
+          ["Client stories", "/portfolio"],
+          ["Contact the UK team", "/contact"],
         ],
       },
     ],
@@ -257,24 +257,36 @@ export const IMPACT = [
   },
 ];
 
-export const CASES = [
+export const PORTFOLIO = [
   {
+    id: "magnus-removals",
+    featured: true,
+    kind: "Website",
     kicker: "Removals · London, UK",
     title: "Magnus Removals",
     body: "Live site for a family-run London removal company — house, commercial and long-distance moves, packing, storage and clearance, with quotes and coverage across the South East.",
     stack: "WordPress",
     image: "/images/portfoio/magnus.jpg",
     href: "https://magnusremovals.co.uk/",
+    industry: "Removals",
+    location: "London, UK",
   },
   {
+    id: "sheryl-perry",
+    featured: true,
+    kind: "Website",
     kicker: "Family law · Chelmsford, UK",
     title: "Sheryl Perry Solicitors",
     body: "Live site for a Chelmsford family-law practice — divorce, children arrangements, financial settlements and nuptial agreements, with appointment booking and client reviews.",
     stack: "WordPress",
     image: "/images/portfoio/sheryl.jpg",
     href: "https://sherylperrysolicitors.uk/",
+    industry: "Legal",
+    location: "Chelmsford, UK",
   },
 ];
+
+export const CASES = PORTFOLIO.filter((item) => item.featured);
 
 export const CAPABILITY_COLUMNS = [
   {

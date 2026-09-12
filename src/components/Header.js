@@ -121,6 +121,13 @@ export default function Header() {
           id={navId}
           className="hidden items-center gap-x-[26px] gap-y-1.5 text-[15px] lg:flex"
         >
+          <Link
+            href="/about"
+            onMouseEnter={() => setMenu(null)}
+            className="py-2 text-ink transition-colors duration-200 hover:text-teal"
+          >
+            About
+          </Link>
           {MENUS.map((key) => (
             <div
               key={key}
@@ -182,6 +189,15 @@ export default function Header() {
           style={{ top: barHeight }}
         >
           <div className="grid gap-7 px-6 py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
+            <Link href="/about" onClick={closeAll} className="text-[15px] font-medium">
+              About
+            </Link>
+            <Link href="/portfolio" onClick={closeAll} className="text-[15px] font-medium">
+              Portfolio
+            </Link>
+            <Link href="/contact" onClick={closeAll} className="text-[15px] font-medium">
+              Contact
+            </Link>
             {MENUS.map((key) => (
               <div key={key}>
                 <p className="eyebrow mb-3">{NAV[key].label}</p>

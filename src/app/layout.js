@@ -1,4 +1,5 @@
 import { Figtree, IBM_Plex_Mono } from "next/font/google";
+import HashScroll from "@/components/HashScroll";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
@@ -72,8 +73,9 @@ export default function RootLayout({ children }) {
     <html
       lang="en-GB"
       className={`${figtree.variable} ${ibmPlexMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full font-sans text-ink">
+      <body className="min-h-full font-sans text-ink" suppressHydrationWarning>
         <a
           href="#top"
           className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[60] focus:rounded-md focus:bg-white focus:px-3 focus:py-2"
@@ -81,6 +83,7 @@ export default function RootLayout({ children }) {
           Skip to content
         </a>
         <Header />
+        <HashScroll />
         {children}
         <Footer />
         <ChatWidget />

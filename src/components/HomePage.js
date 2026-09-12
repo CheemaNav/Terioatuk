@@ -8,11 +8,13 @@ import {
   INSIGHTS,
   REVIEWS,
   SERVICES,
+  SITE,
   STACK_LOGOS,
 } from "@/lib/site";
 import { GoogleMark, Icon } from "./Icons";
 import {
   Container,
+  ContactLine,
   Eyebrow,
   QuoteCta,
   IconTile,
@@ -21,7 +23,7 @@ import {
   TextLink,
 } from "./ui";
 import Faq from "./Faq";
-import QuoteForm from "./QuoteForm";
+import ContactForm from "./ContactForm";
 import HeroVideo from "./HeroVideo";
 import WorkSlider from "./WorkSlider";
 
@@ -69,7 +71,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="border-b border-line bg-white">
+      <section id="services" className="scroll-mt-[8.5rem] border-b border-line bg-white">
         <Container className="py-[clamp(56px,7vw,104px)]">
           <div className="mb-[clamp(32px,4vw,56px)] grid items-end gap-6 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -143,7 +145,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section id="about" className="border-b border-line bg-paper">
+      <section id="about" className="scroll-mt-[8.5rem] border-b border-line bg-paper">
         <Container className="py-[clamp(56px,7vw,104px)]">
           <div className="mb-[clamp(32px,4vw,52px)] grid items-start gap-7 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -247,7 +249,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="capabilities" className="border-b border-line bg-white">
+      <section id="capabilities" className="scroll-mt-[8.5rem] border-b border-line bg-white">
         <Container className="py-[clamp(56px,7vw,104px)]">
           <div className="mb-[clamp(28px,3.5vw,44px)] grid items-end gap-6 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -331,21 +333,23 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section id="work" className="overflow-hidden border-b border-line bg-[#f6f5f2]">
+      <section id="work" className="scroll-mt-[8.5rem] overflow-hidden border-b border-line bg-[#f6f5f2]">
         <Container className="pt-[clamp(56px,7vw,104px)] pb-8">
           <div className="mb-[clamp(28px,4vw,48px)] grid items-end gap-6 lg:grid-cols-[1fr_auto] lg:gap-16">
             <div>
               <Eyebrow>Portfolio</Eyebrow>
               <SectionTitle className="max-w-[18ch]">Our portfolio</SectionTitle>
             </div>
-            <QuoteCta className="w-full self-start sm:w-auto lg:self-end">See the portfolio</QuoteCta>
+            <QuoteCta href="/portfolio" className="w-full self-start sm:w-auto lg:self-end">
+              See the portfolio
+            </QuoteCta>
           </div>
         </Container>
         <WorkSlider />
         <div className="h-[clamp(36px,5vw,72px)]" />
       </section>
 
-      <section id="stack" className="border-b border-line bg-paper">
+      <section id="stack" className="scroll-mt-[8.5rem] border-b border-line bg-paper">
         <Container className="py-[clamp(56px,7vw,104px)]">
           <Eyebrow>Capabilities</Eyebrow>
           <SectionTitle className="mb-[clamp(32px,4vw,52px)] max-w-[22ch]">
@@ -377,7 +381,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section id="insights" className="border-b border-line bg-white">
+      <section id="insights" className="scroll-mt-[8.5rem] border-b border-line bg-white">
         <Container className="py-[clamp(52px,6vw,88px)]">
           <div className="mb-[clamp(28px,3.5vw,44px)] grid items-end gap-6 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -440,7 +444,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {REVIEWS.map((review) => (
               <article
                 key={review.name}
@@ -476,7 +480,38 @@ export default function HomePage() {
       </section>
 
       <Faq />
-      <QuoteForm />
+
+      <section id="quote" className="scroll-mt-[8.5rem] border-b border-line bg-canvas text-ink">
+        <Container className="grid gap-9 py-[clamp(56px,7vw,104px)] lg:grid-cols-2 lg:gap-[72px]">
+          <div>
+            <Eyebrow>Get a quote</Eyebrow>
+            <SectionTitle className="mb-[22px] max-w-[18ch] leading-[1.14]">
+              Tell us what needs building
+            </SectionTitle>
+            <p className="mb-8 max-w-[48ch] text-pretty text-[16.5px] leading-[1.7] text-ink-soft">
+              Send the brief — or just the problem. You will get a written outline
+              of approach, team shape and indicative cost within two working days,
+              from a UK contact, with no obligation.
+            </p>
+            <div className="grid gap-4">
+              <ContactLine icon={<Icon name="call" size={18} />} label="Call">
+                <a href={SITE.phoneHref} className="font-medium text-ink hover:text-teal">
+                  {SITE.phone}
+                </a>
+              </ContactLine>
+              <ContactLine icon={<Icon name="mail" size={18} />} label="Email">
+                <a href={SITE.emailHref} className="font-medium text-ink hover:text-teal">
+                  {SITE.email}
+                </a>
+              </ContactLine>
+              <ContactLine icon={<Icon name="pin" size={18} />} label="London office">
+                {SITE.addressLine}
+              </ContactLine>
+            </div>
+          </div>
+          <ContactForm />
+        </Container>
+      </section>
     </main>
   );
 }

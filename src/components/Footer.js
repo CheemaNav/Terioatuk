@@ -12,11 +12,11 @@ const SERVICES = [
 ];
 
 const COMPANY = [
-  ["About us", "/#about"],
-  ["Our work", "/#work"],
+  ["About us", "/about"],
+  ["Our work", "/portfolio"],
   ["Capabilities", "/#stack"],
   ["FAQ", "/#faq"],
-  ["Get a quote", "/#quote"],
+  ["Contact us", "/contact"],
 ];
 
 export default function Footer() {
