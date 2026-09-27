@@ -11,6 +11,7 @@ import {
   IconTile,
   SectionTitle,
 } from "@/components/ui";
+import { QuoteCta } from "@/components/QuotePopup";
 import {
   WEB_DEV_ENGAGE,
   WEB_DEV_FAQS,
@@ -55,12 +56,7 @@ export default function WebDevelopmentPage() {
             contract and full source code handed over at the end.
           </p>
           <div className="mx-auto flex w-full max-w-sm flex-col justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap">
-            <Link
-              href="/contact"
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-[10px] bg-white px-6 py-3.5 text-center font-semibold text-navy transition-colors duration-200 hover:bg-cyan hover:text-navy sm:w-auto sm:px-[30px] sm:py-4"
-            >
-              Get a quote
-            </Link>
+            <QuoteCta variant="onDark">Get a quote</QuoteCta>
             <Link
               href="/portfolio"
               className="inline-flex min-h-12 w-full items-center justify-center rounded-[10px] border border-white/40 px-6 py-3.5 text-center font-medium text-white transition-colors duration-200 hover:border-cyan-bright hover:text-cyan-bright sm:w-auto sm:px-[30px] sm:py-4"

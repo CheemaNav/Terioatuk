@@ -6,7 +6,7 @@ import {
 } from "@/lib/ai-automation";
 
 export const metadata = {
-  title: AI_AUTO_META.title,
+  title: { absolute: AI_AUTO_META.title },
   description: AI_AUTO_META.description,
   alternates: { canonical: AI_AUTO_URL },
   openGraph: {

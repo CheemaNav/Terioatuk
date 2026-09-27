@@ -4,7 +4,7 @@ import { SITE } from "@/lib/site";
 import { Container } from "@/components/ui";
 
 export const metadata = {
-  title: "Privacy Policy | Terioat Infotech",
+  title: "Privacy Policy",
   description:
     "How Terioat Infotech collects, uses and protects personal data, including contact forms and Google Analytics.",
   alternates: { canonical: "/privacy" },
@@ -25,7 +25,7 @@ const SECTIONS = [
   {
     title: "Who we are",
     body: [
-      `Terioat Infotech (“we”, “us”) is a software engineering and AI automation company based in ${SITE.city}. For UK GDPR, we are the controller of personal data collected through this website.`,
+      `Terioat Infotech (“we”, “us”) is a software engineering and AI automation company. Our registered office is Unit 18, Gill & Russell Business Park, Wharf Street, Walsall WS2 9ES. For UK GDPR, we are the controller of personal data collected through this website.`,
       `Questions about this notice: ${SITE.email} or ${SITE.phone}.`,
     ],
   },

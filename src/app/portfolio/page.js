@@ -5,9 +5,9 @@ import { Container } from "@/components/ui";
 import PortfolioGrid from "@/components/PortfolioGrid";
 
 export const metadata = {
-  title: "Portfolio | Terioat Infotech",
+  title: "Portfolio – Websites & Web Apps We've Built",
   description:
-    "Live UK websites from Terioat Infotech — Magnus Removals and Sheryl Perry Solicitors.",
+    "See live websites and web applications built by Terioat Infotech Ltd for UK businesses, including Sheryl Perry Solicitors in Chelmsford and Magnus Removals in London.",
   alternates: { canonical: "/portfolio" },
   openGraph: {
     url: "/portfolio",

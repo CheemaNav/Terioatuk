@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { GOOGLE_MAPS_URL } from "@/lib/external-links";
 import { Icon } from "./Icons";
 import { Container, Logo } from "./ui";
 
@@ -77,11 +78,20 @@ export default function Footer() {
           <ul className="m-0 grid list-none gap-3.5 p-0 text-[15px] leading-[1.6]">
             <li className="flex gap-3">
               <Icon name="pin" size={16} className="mt-[3px] shrink-0 text-cyan-bright" />
-              <span>
-                {SITE.addressLine}
-                <br />
-                {SITE.city}
-              </span>
+              {GOOGLE_MAPS_URL ? (
+                <a
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="whitespace-pre-line text-white transition-colors duration-200 hover:text-cyan-bright"
+                >
+                  {SITE.addressBlock}
+                </a>
+              ) : (
+                <span className="whitespace-pre-line text-white">
+                  {SITE.addressBlock}
+                </span>
+              )}
             </li>
             <li className="flex gap-3">
               <Icon name="call" size={16} className="mt-[3px] shrink-0 text-cyan-bright" />

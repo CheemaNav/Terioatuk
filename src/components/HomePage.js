@@ -16,12 +16,12 @@ import {
   Container,
   ContactLine,
   Eyebrow,
-  QuoteCta,
   IconTile,
   MediaPanel,
   SectionTitle,
   TextLink,
 } from "./ui";
+import { QuoteCta } from "./QuotePopup";
 import Faq from "./Faq";
 import ContactForm from "./ContactForm";
 import HeroVideo from "./HeroVideo";
@@ -35,14 +35,14 @@ export default function HomePage() {
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(29,30,32,0.48)_0%,rgba(29,30,32,0.68)_48%,rgba(29,30,32,0.9)_100%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_55%_at_50%_18%,rgba(16,184,204,0.12),transparent_60%)]" />
         <div className="relative mx-auto flex min-h-[min(78dvh,840px)] max-w-[900px] flex-col justify-center px-4 py-[clamp(64px,12vw,140px)] text-center sm:px-6">
-          <p className="mb-4 text-pretty font-mono text-[10.5px] leading-relaxed tracking-[0.12em] text-cyan-bright uppercase sm:mb-[22px] sm:text-[11.5px] sm:tracking-[0.16em]">
-            Software development company in London · AI automation agency UK
-          </p>
-          <h1 className="mb-5 text-balance font-sans text-[clamp(32px,8.4vw,72px)] font-bold leading-[1.06] tracking-[-0.035em] text-white sm:mb-6 sm:leading-[1.04]">
+          <h1 className="mb-4 text-pretty font-mono text-[10.5px] leading-relaxed tracking-[0.12em] text-cyan-bright uppercase sm:mb-[22px] sm:text-[11.5px] sm:tracking-[0.16em]">
+            Software Development Company in London
+          </h1>
+          <p className="mb-5 text-balance font-sans text-[clamp(32px,8.4vw,72px)] font-bold leading-[1.06] tracking-[-0.035em] text-white sm:mb-6 sm:leading-[1.04]">
             Software that ships.
             <br />
             <em className="italic text-cyan">AI that earns its place.</em>
-          </h1>
+          </p>
           <h2 className="mx-auto mb-5 max-w-[60ch] text-pretty text-[15.5px] font-semibold leading-[1.65] text-[#c5c9cd] sm:mb-6 sm:text-[clamp(16px,1.3vw,19px)]">
             Custom software development, AI automation and dedicated teams for UK
             enterprises and agencies.
@@ -55,12 +55,7 @@ export default function HomePage() {
             engineered at offshore rates.
           </p>
           <div className="mx-auto flex w-full max-w-sm flex-col justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap">
-            <Link
-              href="/#quote"
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-[10px] bg-white px-6 py-3.5 text-center font-semibold text-navy transition-colors duration-200 hover:bg-cyan hover:text-navy sm:w-auto sm:px-[30px] sm:py-4"
-            >
-              Get a quote
-            </Link>
+            <QuoteCta variant="onDark">Get a quote</QuoteCta>
             <Link
               href="/#capabilities"
               className="inline-flex min-h-12 w-full items-center justify-center rounded-[10px] border border-white/40 px-6 py-3.5 text-center font-medium text-white transition-colors duration-200 hover:border-cyan-bright hover:text-cyan-bright sm:w-auto sm:px-[30px] sm:py-4"
@@ -183,12 +178,9 @@ export default function HomePage() {
                 sensible with blended teams. When AI genuinely reduces work we
                 use it; when it does not, we say so.
               </p>
-              <Link
-                href="/#quote"
-                className="border-b-2 border-cyan pb-0.5 font-semibold text-teal hover:text-teal-dark"
-              >
+              <QuoteCta variant="text" className="text-[16px]">
                 Talk to our UK team
-              </Link>
+              </QuoteCta>
             </div>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -516,8 +508,8 @@ export default function HomePage() {
                   {SITE.email}
                 </a>
               </ContactLine>
-              <ContactLine icon={<Icon name="pin" size={18} />} label="London office">
-                {SITE.addressLine}
+              <ContactLine icon={<Icon name="pin" size={18} />} label="UK office">
+                <span className="whitespace-pre-line">{SITE.addressBlock}</span>
               </ContactLine>
             </div>
           </div>

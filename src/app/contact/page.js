@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { SITE } from "@/lib/site";
+import { GOOGLE_MAPS_URL } from "@/lib/external-links";
 import ContactForm from "@/components/ContactForm";
 import { Container } from "@/components/ui";
 
 export const metadata = {
-  title: "Contact | Terioat Infotech",
+  title: "Contact Us – Get a Free Quote",
   description:
     "Free consultation, no pitch deck. Tell Terioat Infotech what you need and we will come back with a clear next step.",
   alternates: { canonical: "/contact" },
@@ -36,9 +37,11 @@ const details = [
   },
   {
     label: "Visit",
-    value: SITE.city,
-    href: `https://maps.google.com/?q=${encodeURIComponent(SITE.city)}`,
-    note: "UK-based team",
+    value: SITE.addressBlock,
+    href: GOOGLE_MAPS_URL,
+    note: "Walsall, West Midlands",
+    multiline: true,
+    external: true,
   },
 ];
 
@@ -95,25 +98,54 @@ export default function ContactPage() {
                   <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-[#00beca]">
                     {item.label}
                   </p>
-                  <a
-                    href={item.href}
-                    className="mt-2 block break-words text-[17px] font-bold text-[#0b1220] transition-colors hover:text-[#00beca] sm:text-[18px]"
-                  >
-                    {item.value}
-                  </a>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      {...(item.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className={`mt-2 block break-words text-[17px] font-bold text-[#0b1220] transition-colors hover:text-[#00beca] sm:text-[18px]${item.multiline ? " whitespace-pre-line" : ""}`}
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p
+                      className={`mt-2 break-words text-[17px] font-bold text-[#0b1220] sm:text-[18px]${item.multiline ? " whitespace-pre-line" : ""}`}
+                    >
+                      {item.value}
+                    </p>
+                  )}
                   <p className="mt-1 text-[14px] text-[#667085]">{item.note}</p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 overflow-hidden rounded-[22px] border border-[#e4e8ef]">
-              <iframe
-                title={`Terioat Infotech location in ${SITE.city}`}
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE.city)}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
-                className="h-[220px] w-full border-0 sm:h-[240px]"
-                loading="lazy"
-              />
-            </div>
+            {GOOGLE_MAPS_URL ? (
+              <a
+                href={GOOGLE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 flex min-h-12 items-center justify-between gap-4 rounded-[22px] border border-[#e4e8ef] bg-white p-5 transition-colors hover:border-[#00beca] sm:p-6"
+              >
+                <span>
+                  <span className="block text-[13px] font-semibold uppercase tracking-[0.14em] text-[#00beca]">
+                    Google Business Profile
+                  </span>
+                  <span className="mt-2 block text-[17px] font-bold text-[#0b1220] sm:text-[18px]">
+                    View us on Google
+                  </span>
+                  <span className="mt-1 block text-[14px] text-[#667085]">
+                    Directions, hours and listing
+                  </span>
+                </span>
+                <span
+                  aria-hidden
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#e4e8ef] text-[#00beca]"
+                >
+                  ↗
+                </span>
+              </a>
+            ) : null}
           </aside>
         </Container>
       </section>

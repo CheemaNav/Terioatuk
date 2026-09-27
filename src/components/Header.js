@@ -4,7 +4,8 @@ import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { NAV, SITE } from "@/lib/site";
 import { Icon } from "./Icons";
-import { Container, Logo, PromoCard, QuoteCta } from "./ui";
+import { Container, Logo } from "./ui";
+import { PromoCard, QuoteCta } from "./QuotePopup";
 
 const MENUS = ["what", "who", "about"];
 
@@ -132,6 +133,13 @@ export default function Header() {
           >
             About
           </Link>
+          <Link
+            href="/portfolio"
+            onMouseEnter={() => setMenu(null)}
+            className="py-2 text-ink transition-colors duration-200 hover:text-teal"
+          >
+            Portfolio
+          </Link>
           {MENUS.map((key) => (
             <div
               key={key}
@@ -150,13 +158,6 @@ export default function Header() {
               </Link>
             </div>
           ))}
-          <Link
-            href="/#faq"
-            onMouseEnter={() => setMenu(null)}
-            className="py-2 text-ink transition-colors duration-200 hover:text-teal"
-          >
-            FAQ
-          </Link>
           <QuoteCta onMouseEnter={() => setMenu(null)} />
         </nav>
 
@@ -224,10 +225,7 @@ export default function Header() {
                 </div>
               </div>
             ))}
-            <Link href="/#faq" onClick={closeAll} className="text-[15px] font-medium">
-              FAQ
-            </Link>
-            <QuoteCta className="w-full min-h-12" />
+            <QuoteCta className="w-full min-h-12" onClick={closeAll} />
           </div>
         </div>
       ) : null}

@@ -84,33 +84,6 @@ export function GhostButton({ href, children, className = "" }) {
   );
 }
 
-export function QuoteCta({ children = "Get a quote", className = "", ...props }) {
-  return (
-    <Link
-      href="/contact"
-      className={`inline-flex min-h-11 items-center justify-center rounded-[10px] bg-cyan px-5 py-3 text-[15px] font-semibold text-navy transition-colors duration-200 hover:bg-teal hover:text-white sm:px-[22px] ${className}`}
-      {...props}
-    >
-      {children}
-    </Link>
-  );
-}
-
-export function PromoCard({ kicker, text }) {
-  return (
-    <div className="grid content-start gap-2.5 rounded-[14px] border border-cyan-soft bg-cyan-wash p-[22px]">
-      <p className="eyebrow m-0 text-teal">{kicker}</p>
-      <p className="m-0 text-[14.5px] leading-[1.55] text-ink">{text}</p>
-      <Link
-        href="/contact"
-        className="justify-self-start border-b-2 border-cyan pb-0.5 text-[14.5px] font-semibold text-teal transition-colors duration-200 hover:text-teal-dark"
-      >
-        Get a quote
-      </Link>
-    </div>
-  );
-}
-
 export function MediaPanel({
   src,
   alt = "",

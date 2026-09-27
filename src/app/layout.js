@@ -3,6 +3,7 @@ import HashScroll from "@/components/HashScroll";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
+import { QuotePopupProvider } from "@/components/QuotePopup";
 import { ORG_JSON_LD, SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -30,7 +31,10 @@ export const viewport = {
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
-  title: "Custom Software & AI Automation Agency London | Terioat Infotech",
+  title: {
+    default: "Terioat Infotech Ltd | Software Development Company London",
+    template: "%s | Terioat Infotech Ltd",
+  },
   description:
     "AI automation, custom software development, mobile apps and dedicated teams for UK enterprises and agencies. Based in London.",
   robots: {
@@ -63,11 +67,6 @@ export const metadata = {
       "AI automation, custom software development, mobile apps and dedicated teams for UK enterprises and agencies. Based in London.",
     images: ["/og.jpg"],
   },
-  icons: {
-    icon: [{ url: "/terioat_fav.png", type: "image/png" }],
-    shortcut: "/terioat_fav.png",
-    apple: "/terioat_fav.png",
-  },
 };
 
 export default function RootLayout({ children }) {
@@ -98,11 +97,13 @@ gtag('config', '${GA_MEASUREMENT_ID}');`,
         >
           Skip to content
         </a>
-        <Header />
-        <HashScroll />
-        {children}
-        <Footer />
-        <ChatWidget />
+        <QuotePopupProvider>
+          <Header />
+          <HashScroll />
+          {children}
+          <Footer />
+          <ChatWidget />
+        </QuotePopupProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}

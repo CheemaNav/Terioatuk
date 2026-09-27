@@ -75,8 +75,8 @@ export default function QuoteForm() {
                 {SITE.email}
               </a>
             </ContactLine>
-            <ContactLine icon={<Icon name="pin" size={18} />} label="London office">
-              {SITE.addressLine}
+            <ContactLine icon={<Icon name="pin" size={18} />} label="UK office">
+              <span className="whitespace-pre-line">{SITE.addressBlock}</span>
             </ContactLine>
           </div>
         </div>

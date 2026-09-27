@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { FAQS } from "@/lib/site";
 import { Icon } from "./Icons";
-import { Container, Eyebrow, QuoteCta, SectionTitle } from "./ui";
+import { Container, Eyebrow, SectionTitle } from "./ui";
+import { QuoteCta } from "./QuotePopup";
 
 export default function Faq() {
   const [open, setOpen] = useState(0);

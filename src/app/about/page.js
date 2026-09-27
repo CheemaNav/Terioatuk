@@ -12,9 +12,9 @@ import {
 } from "@/components/ui";
 
 export const metadata = {
-  title: "About | Terioat Infotech",
+  title: "About Us – London Software Development Company",
   description:
-    "A London-based software development company building custom software, AI automation and dedicated teams for UK enterprises and agencies.",
+    "Terioat Infotech Ltd is a London-based software development company building custom websites, web apps, AI automation and dedicated teams for UK businesses and agencies.",
   alternates: { canonical: "/about" },
   openGraph: {
     url: "/about",

@@ -1,3 +1,8 @@
+import {
+  GOOGLE_BUSINESS_PROFILE_URL,
+  LINKEDIN_URL,
+} from "@/lib/external-links";
+
 export const SITE = {
   name: "Terioat Infotech",
   url: "https://terioatinfotech.co.uk",
@@ -7,8 +12,14 @@ export const SITE = {
   whatsappHref: "https://wa.me/447836615480",
   email: "info@terioatinfotech.com",
   emailHref: "mailto:info@terioatinfotech.com",
-  addressLine: "Add your registered London address here",
-  city: "London, UK",
+  addressLine: "Unit 18, Gill & Russell Business Park, Wharf Street",
+  city: "Walsall",
+  postcode: "WS2 9ES",
+  addressRegion: "West Midlands",
+  addressBlock: `Unit 18, Gill & Russell Business Park
+Wharf Street, Walsall WS2 9ES`,
+  mapsQuery:
+    "Unit 18, Gill & Russell Business Park, Wharf Street, Walsall WS2 9ES, United Kingdom",
   locale: "en_GB",
 };
 
@@ -442,6 +453,15 @@ export const FAQS = [
 
 export const ORG_ID = `${SITE.url.replace(/\/$/, "")}/#org`;
 
+export const POSTAL_ADDRESS = {
+  "@type": "PostalAddress",
+  streetAddress: SITE.addressLine,
+  addressLocality: SITE.city,
+  addressRegion: SITE.addressRegion,
+  postalCode: SITE.postcode,
+  addressCountry: "GB",
+};
+
 export const ORG_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -451,6 +471,8 @@ export const ORG_JSON_LD = {
   logo: `${SITE.url.replace(/\/$/, "")}/terioat-logo.webp`,
   telephone: SITE.phone,
   email: SITE.email,
+  address: POSTAL_ADDRESS,
+  sameAs: [LINKEDIN_URL, GOOGLE_BUSINESS_PROFILE_URL].filter(Boolean),
 };
 
 export const JSON_LD = {
@@ -466,12 +488,7 @@ export const JSON_LD = {
       telephone: "+44-7836-615480",
       email: SITE.email,
       image: `${SITE.url.replace(/\/$/, "")}/terioat-logo.webp`,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "London",
-        addressRegion: "England",
-        addressCountry: "GB",
-      },
+      address: POSTAL_ADDRESS,
       areaServed: [
         "London",
         "Manchester",
