@@ -4,19 +4,19 @@ import { Icon } from "./Icons";
 import { Container, Logo } from "./ui";
 
 const SERVICES = [
-  ["AI automation & agents", "/#services"],
-  ["Custom software", "/#services"],
-  ["Mobile app development", "/#services"],
-  ["Dedicated & white-label teams", "/#capabilities"],
-  ["Search & digital growth", "/#services"],
+  ["Web development", "/web-development-london"],
+  ["AI automation & agents", "/ai-automation-agency-uk"],
+  ["Custom software"],
+  ["Mobile app development"],
+  ["Dedicated & white-label teams"],
+  ["Search & digital growth"],
 ];
 
 const COMPANY = [
   ["About us", "/about"],
   ["Our work", "/portfolio"],
-  ["Capabilities", "/#stack"],
-  ["FAQ", "/#faq"],
   ["Contact us", "/contact"],
+  ["Privacy policy", "/privacy"],
 ];
 
 export default function Footer() {
@@ -41,9 +41,13 @@ export default function Footer() {
           <ul className="m-0 grid list-none gap-[11px] p-0 text-[15px]">
             {SERVICES.map(([label, href]) => (
               <li key={label}>
-                <Link href={href} className="transition-colors duration-200 hover:text-white">
-                  {label}
-                </Link>
+                {href ? (
+                  <Link href={href} className="transition-colors duration-200 hover:text-white">
+                    {label}
+                  </Link>
+                ) : (
+                  <span>{label}</span>
+                )}
               </li>
             ))}
           </ul>
@@ -55,9 +59,13 @@ export default function Footer() {
           <ul className="m-0 grid list-none gap-[11px] p-0 text-[15px]">
             {COMPANY.map(([label, href]) => (
               <li key={label}>
-                <Link href={href} className="transition-colors duration-200 hover:text-white">
-                  {label}
-                </Link>
+                {href ? (
+                  <Link href={href} className="transition-colors duration-200 hover:text-white">
+                    {label}
+                  </Link>
+                ) : (
+                  <span>{label}</span>
+                )}
               </li>
             ))}
           </ul>
@@ -97,20 +105,9 @@ export default function Footer() {
             Registered in England &amp; Wales.
           </span>
           <div className="flex flex-wrap gap-x-[22px] gap-y-2.5 whitespace-nowrap">
-            <Link href="/#top" className="transition-colors duration-200 hover:text-white">
+            <Link href="/privacy" className="transition-colors duration-200 hover:text-white">
               Privacy policy
             </Link>
-            <Link href="/#top" className="transition-colors duration-200 hover:text-white">
-              Terms
-            </Link>
-            <a
-              href="https://www.linkedin.com/"
-              rel="noreferrer"
-              target="_blank"
-              className="transition-colors duration-200 hover:text-white"
-            >
-              LinkedIn
-            </a>
           </div>
         </Container>
       </div>

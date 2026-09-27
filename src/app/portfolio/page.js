@@ -9,6 +9,17 @@ export const metadata = {
   description:
     "Live UK websites from Terioat Infotech — Magnus Removals and Sheryl Perry Solicitors.",
   alternates: { canonical: "/portfolio" },
+  openGraph: {
+    url: "/portfolio",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 900,
+        alt: "Terioat Infotech",
+      },
+    ],
+  },
 };
 
 const FEATURED = PORTFOLIO.filter((item) => item.featured);

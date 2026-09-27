@@ -8,6 +8,17 @@ export const metadata = {
   description:
     "Free consultation, no pitch deck. Tell Terioat Infotech what you need and we will come back with a clear next step.",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    url: "/contact",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 900,
+        alt: "Terioat Infotech",
+      },
+    ],
+  },
 };
 
 const details = [

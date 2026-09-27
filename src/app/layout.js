@@ -3,7 +3,7 @@ import HashScroll from "@/components/HashScroll";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
-import { JSON_LD, SITE } from "@/lib/site";
+import { ORG_JSON_LD, SITE } from "@/lib/site";
 import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-PHLL27S7BB";
@@ -105,7 +105,7 @@ gtag('config', '${GA_MEASUREMENT_ID}');`,
         <ChatWidget />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}
         />
       </body>
     </html>

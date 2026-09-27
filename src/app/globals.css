@@ -79,6 +79,14 @@ body {
   outline-offset: 3px;
 }
 
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 11.5px;

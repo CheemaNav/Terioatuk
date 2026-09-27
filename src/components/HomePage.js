@@ -85,62 +85,78 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {SERVICES.map((service) => (
-              <Link
-                key={service.title}
-                href="/#quote"
-                className={`relative flex min-h-0 flex-col overflow-hidden rounded-[14px] p-6 shadow-[0_1px_2px_rgba(20,20,20,0.04)] transition-shadow hover:shadow-[0_16px_34px_rgba(20,20,20,0.10)] sm:p-8 ${
-                  service.featured
-                    ? "border border-hero text-white"
-                    : "border border-line bg-white text-ink hover:border-cyan-soft"
-                }`}
-              >
-                {service.featured ? (
-                  <>
-                    <Image
-                      src="/images/service-ai-bg.jpg"
-                      alt=""
-                      fill
-                      sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
-                      className="object-cover"
+            {SERVICES.map((service) => {
+              const inner = (
+                <>
+                  {service.featured ? (
+                    <>
+                      <Image
+                        src="/images/service-ai-bg.jpg"
+                        alt=""
+                        fill
+                        sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                      <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgba(20,22,24,0.58)_0%,rgba(18,19,21,0.78)_48%,rgba(16,18,20,0.9)_100%)]" />
+                      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_15%_0%,rgba(16,184,204,0.22),transparent_58%)]" />
+                      <span className="absolute top-[22px] right-6 z-10 rounded-full bg-cyan px-2.5 py-1 font-mono text-[10px] font-medium tracking-[0.14em] text-navy uppercase">
+                        New
+                      </span>
+                    </>
+                  ) : null}
+                  <div className="relative z-10 flex flex-1 flex-col gap-4">
+                    <Icon
+                      name={service.icon}
+                      size={30}
+                      className={service.featured ? "text-cyan-bright" : "text-teal"}
                     />
-                    <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgba(20,22,24,0.58)_0%,rgba(18,19,21,0.78)_48%,rgba(16,18,20,0.9)_100%)]" />
-                    <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_15%_0%,rgba(16,184,204,0.22),transparent_58%)]" />
-                    <span className="absolute top-[22px] right-6 z-10 rounded-full bg-cyan px-2.5 py-1 font-mono text-[10px] font-medium tracking-[0.14em] text-navy uppercase">
-                      New
-                    </span>
-                  </>
-                ) : null}
-                <div className="relative z-10 flex flex-1 flex-col gap-4">
-                  <Icon
-                    name={service.icon}
-                    size={30}
-                    className={service.featured ? "text-cyan-bright" : "text-teal"}
-                  />
-                  <h3
-                    className={`m-0 font-sans text-[22px] font-bold tracking-[-0.025em] ${
-                      service.featured ? "text-white" : "text-ink"
-                    }`}
-                  >
-                    {service.title}
-                  </h3>
-                  <p
-                    className={`m-0 flex-1 text-[15.5px] leading-[1.65] ${
-                      service.featured ? "text-[#b0b2b6]" : "text-muted"
-                    }`}
-                  >
-                    {service.body}
-                  </p>
-                  <span
-                    className={`inline-flex items-center gap-2 text-[14.5px] font-semibold ${
-                      service.featured ? "text-cyan-bright" : "text-teal"
-                    }`}
-                  >
-                    Learn more <Icon name="arrow" size={15} />
-                  </span>
-                </div>
-              </Link>
-            ))}
+                    <h3
+                      className={`m-0 font-sans text-[22px] font-bold tracking-[-0.025em] ${
+                        service.featured ? "text-white" : "text-ink"
+                      }`}
+                    >
+                      {service.title}
+                    </h3>
+                    <p
+                      className={`m-0 flex-1 text-[15.5px] leading-[1.65] ${
+                        service.featured ? "text-[#b0b2b6]" : "text-muted"
+                      }`}
+                    >
+                      {service.body}
+                    </p>
+                    {service.href ? (
+                      <span
+                        className={`inline-flex items-center gap-2 text-[14.5px] font-semibold ${
+                          service.featured ? "text-cyan-bright" : "text-teal"
+                        }`}
+                      >
+                        Learn more <Icon name="arrow" size={15} />
+                      </span>
+                    ) : null}
+                  </div>
+                </>
+              );
+              const className = `relative flex min-h-0 flex-col overflow-hidden rounded-[14px] p-6 shadow-[0_1px_2px_rgba(20,20,20,0.04)] sm:p-8 ${
+                service.featured
+                  ? "border border-hero text-white"
+                  : "border border-line bg-white text-ink"
+              }`;
+              return service.href ? (
+                <Link
+                  key={service.title}
+                  href={service.href}
+                  className={`${className} transition-shadow hover:shadow-[0_16px_34px_rgba(20,20,20,0.10)] ${
+                    service.featured ? "" : "hover:border-cyan-soft"
+                  }`}
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <article key={service.title} className={className}>
+                  {inner}
+                </article>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -290,9 +306,11 @@ export default function HomePage() {
                   <p className="m-0 max-w-[56ch] text-pretty text-base leading-[1.7] text-muted">
                     {item.body}
                   </p>
-                  <TextLink href="/#quote">
-                    {item.cta} <Icon name="arrow" size={16} />
-                  </TextLink>
+                  {item.href ? (
+                    <TextLink href={item.href}>
+                      {item.cta} <Icon name="arrow" size={16} />
+                    </TextLink>
+                  ) : null}
                 </div>
               </article>
             ))}
@@ -397,10 +415,9 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {INSIGHTS.map((post) => (
-              <Link
+              <article
                 key={post.title}
-                href="/#insights"
-                className="flex flex-col overflow-hidden rounded-[14px] border border-line bg-white text-ink transition-colors hover:border-cyan"
+                className="flex flex-col overflow-hidden rounded-[14px] border border-line bg-white text-ink"
               >
                 <MediaPanel
                   src={post.image}
@@ -420,7 +437,7 @@ export default function HomePage() {
                     {post.standfirst}
                   </p>
                 </div>
-              </Link>
+              </article>
             ))}
           </div>
         </Container>
@@ -437,11 +454,6 @@ export default function HomePage() {
               <span className="text-[17px] font-bold tracking-[-0.02em]">4.9</span>
               <span className="text-[15px] tracking-widest text-[#f5a623]">★★★★★</span>
               <span className="text-[14.5px] text-muted">18 Google reviews</span>
-            </div>
-            <div className="mt-3.5">
-              <Link href="/#quote" className="text-[14.5px] font-semibold text-teal">
-                See all reviews →
-              </Link>
             </div>
           </div>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">

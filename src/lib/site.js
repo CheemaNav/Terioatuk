@@ -1,6 +1,7 @@
 export const SITE = {
   name: "Terioat Infotech",
-  url: "https://terioatinfotech.com",
+  url: "https://terioatinfotech.co.uk",
+  canonicalOrigin: "https://terioatinfotech.co.uk",
   phone: "+44 7836 615480",
   phoneHref: "tel:+447836615480",
   whatsappHref: "https://wa.me/447836615480",
@@ -19,46 +20,47 @@ export const NAV = {
       {
         title: "Services",
         links: [
-          ["AI automation & agents", "/#services"],
-          ["AI chatbot development", "/#services"],
-          ["Custom software", "/#services"],
-          ["Web application development", "/#services"],
-          ["Mobile app development", "/#services"],
-          ["UX/UI design", "/#stack"],
+          ["Web development", "/web-development-london"],
+          ["AI automation & agents", "/ai-automation-agency-uk"],
+          ["AI chatbot development", "/ai-automation-agency-uk"],
+          ["Custom software"],
+          ["Web application development", "/web-development-london"],
+          ["Mobile app development"],
+          ["UX/UI design"],
         ],
       },
       {
         title: "Solutions",
         links: [
-          ["Learning management", "/#stack"],
-          ["CRM & customer portals", "/#stack"],
-          ["Warehouse management", "/#stack"],
-          ["Inventory management", "/#stack"],
-          ["Document management", "/#stack"],
-          ["Booking & events", "/#stack"],
+          ["Learning management"],
+          ["CRM & customer portals"],
+          ["Warehouse management"],
+          ["Inventory management"],
+          ["Document management"],
+          ["Booking & events"],
         ],
       },
       {
         title: "Hire developers",
         links: [
-          ["Laravel developers", "/#quote"],
-          ["Node.js developers", "/#quote"],
-          ["React developers", "/#quote"],
-          ["React Native developers", "/#quote"],
-          ["WordPress developers", "/#quote"],
-          ["Shopify developers", "/#quote"],
+          ["Laravel developers"],
+          ["Node.js developers"],
+          ["React developers"],
+          ["React Native developers"],
+          ["WordPress developers"],
+          ["Shopify developers"],
         ],
       },
     ],
     promo: {
       kicker: "New",
       text: "AI agents grounded in your data, live in weeks — not quarters.",
-      href: "/#quote",
+      href: "/ai-automation-agency-uk",
     },
   },
   who: {
     label: "Who we work with",
-    href: "/#services",
+    href: "/portfolio",
     columns: [
       {
         title: "Industries",
@@ -74,17 +76,17 @@ export const NAV = {
       {
         title: "Partners",
         links: [
-          ["Agencies — white label", "/#capabilities"],
-          ["Enterprise IT", "/#about"],
-          ["Systems integrators", "/#about"],
-          ["Startups & scale-ups", "/#about"],
+          ["Agencies — white label"],
+          ["Enterprise IT"],
+          ["Systems integrators"],
+          ["Startups & scale-ups"],
         ],
       },
     ],
     promo: {
       kicker: "For agencies",
       text: "NDA-first white-label engineering under your brand.",
-      href: "/#quote",
+      href: "/contact",
     },
   },
   about: {
@@ -96,14 +98,14 @@ export const NAV = {
         links: [
           ["About us", "/about"],
           ["Our work", "/portfolio"],
-          ["Capabilities", "/#stack"],
-          ["Careers", "/#quote"],
+          ["Capabilities"],
+          ["Privacy policy", "/privacy"],
         ],
       },
       {
         title: "Spotlight",
         links: [
-          ["Insights & guides", "/#insights"],
+          ["Insights & guides"],
           ["Client stories", "/portfolio"],
           ["Contact the UK team", "/contact"],
         ],
@@ -112,7 +114,7 @@ export const NAV = {
     promo: {
       kicker: "Talk to us",
       text: "A named London lead on every engagement.",
-      href: "/#quote",
+      href: "/contact",
     },
   },
 };
@@ -122,11 +124,13 @@ export const SERVICES = [
     featured: true,
     icon: "agent",
     title: "AI automation & agents",
+    href: "/ai-automation-agency-uk",
     body: "We develop AI agents for UK operations — workflow automation grounded in your own data and integrated with the CRM, ERP and inboxes your team already uses.",
   },
   {
     icon: "code",
     title: "Custom software & web apps",
+    href: "/web-development-london",
     body: "Custom web application development for UK teams: portals, marketplaces and internal platforms on Laravel, Node and React — built for audit, access control and scale.",
   },
   {
@@ -209,6 +213,7 @@ export const ENGAGEMENTS = [
     title: "Agents that do the work, not just answer questions",
     body: "Custom AI agents and chatbots on OpenAI, Claude and Gemini — grounded in your data, integrated with your CRM, ERP and WhatsApp, with a human in the loop wherever you want one. Prototype in weeks, not quarters.",
     cta: "Explore AI agent development",
+    href: "/ai-automation-agency-uk",
     image: "/images/feat-agents.jpg",
     imageFirst: true,
   },
@@ -219,6 +224,7 @@ export const ENGAGEMENTS = [
     title: "Enterprise portals, marketplaces and SaaS built to last",
     body: "Learning management, warehouse and inventory systems, customer portals, on-demand delivery and booking platforms — delivered on Laravel, Node.js and React, with the security and scale enterprises expect.",
     cta: "See our solutions",
+    href: "/web-development-london",
     image: "/images/feat-product.jpg",
     imageFirst: false,
   },
@@ -434,19 +440,32 @@ export const FAQS = [
   },
 ];
 
+export const ORG_ID = `${SITE.url.replace(/\/$/, "")}/#org`;
+
+export const ORG_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": ORG_ID,
+  name: "Terioat Infotech Ltd",
+  url: SITE.url,
+  logo: `${SITE.url.replace(/\/$/, "")}/terioat-logo.webp`,
+  telephone: SITE.phone,
+  email: SITE.email,
+};
+
 export const JSON_LD = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": ["ProfessionalService", "LocalBusiness", "Organization"],
-      "@id": "https://terioatinfotech.com/#org",
+      "@id": ORG_ID,
       name: "Terioat Infotech",
       description:
         "London-based software development and AI automation agency providing custom software development, mobile apps, AI agents and dedicated teams for UK enterprises, agencies, legal firms, logistics operators and removals companies.",
-      url: "https://terioatinfotech.com/",
+      url: `${SITE.url.replace(/\/$/, "")}/`,
       telephone: "+44-7836-615480",
-      email: "info@terioatinfotech.com",
-      image: "https://terioatinfotech.com/terioat-logo.webp",
+      email: SITE.email,
+      image: `${SITE.url.replace(/\/$/, "")}/terioat-logo.webp`,
       address: {
         "@type": "PostalAddress",
         addressLocality: "London",

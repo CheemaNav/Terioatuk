@@ -16,6 +16,17 @@ export const metadata = {
   description:
     "A London-based software development company building custom software, AI automation and dedicated teams for UK enterprises and agencies.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    url: "/about",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 900,
+        alt: "Terioat Infotech",
+      },
+    ],
+  },
 };
 
 const STATS = [

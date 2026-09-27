@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { CASES } from "@/lib/site";
 import { Icon } from "./Icons";
 
@@ -217,16 +216,18 @@ export default function WorkSlider() {
               <p className="mt-2.5 mb-0 line-clamp-3 max-w-[46ch] text-[14px] leading-[1.55] text-white/80 sm:mt-3 sm:line-clamp-none sm:text-[15px] sm:leading-[1.6]">
                 {item.body}
               </p>
-              <Link
-                href={item.href || "/#quote"}
-                target={item.href ? "_blank" : undefined}
-                rel={item.href ? "noopener noreferrer" : undefined}
-                className="pointer-events-auto mt-4 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2.5 text-[14.5px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-navy sm:mt-5"
-                onClick={(event) => event.stopPropagation()}
-              >
-                {item.href ? "Visit site" : "View project"}
-                <Icon name="arrow" size={15} />
-              </Link>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pointer-events-auto mt-4 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2.5 text-[14.5px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-navy sm:mt-5"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  Visit site
+                  <Icon name="arrow" size={15} />
+                </a>
+              ) : null}
             </div>
           </article>
         ))}

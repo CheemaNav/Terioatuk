@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { REVIEWS } from "@/lib/site";
 import { GoogleMark } from "./Icons";
 import { Container } from "./ui";
@@ -16,11 +15,6 @@ export default function Reviews() {
             <span className="text-[17px] font-bold tracking-[-0.02em]">4.9</span>
             <span className="text-[15px] tracking-widest text-[#f5a623]">★★★★★</span>
             <span className="text-[14.5px] text-muted">18 Google reviews</span>
-          </div>
-          <div className="mt-3.5">
-            <Link href="/#quote" className="text-[14.5px] font-semibold text-teal">
-              See all reviews →
-            </Link>
           </div>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">

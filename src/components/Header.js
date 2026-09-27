@@ -17,13 +17,17 @@ function MenuLinks({ item, onNavigate }) {
           <ul className="m-0 grid list-none gap-2.5 p-0">
             {column.links.map(([label, href]) => (
               <li key={label}>
-                <Link
-                  href={href}
-                  onClick={onNavigate}
-                  className="text-[14.5px] text-ink transition-colors duration-200 hover:text-teal"
-                >
-                  {label}
-                </Link>
+                {href ? (
+                  <Link
+                    href={href}
+                    onClick={onNavigate}
+                    className="text-[14.5px] text-ink transition-colors duration-200 hover:text-teal"
+                  >
+                    {label}
+                  </Link>
+                ) : (
+                  <span className="text-[14.5px] text-ink">{label}</span>
+                )}
               </li>
             ))}
           </ul>
@@ -147,13 +151,6 @@ export default function Header() {
             </div>
           ))}
           <Link
-            href="/#insights"
-            onMouseEnter={() => setMenu(null)}
-            className="py-2 text-ink transition-colors duration-200 hover:text-teal"
-          >
-            What we think
-          </Link>
-          <Link
             href="/#faq"
             onMouseEnter={() => setMenu(null)}
             className="py-2 text-ink transition-colors duration-200 hover:text-teal"
@@ -208,13 +205,17 @@ export default function Header() {
                       <ul className="m-0 grid list-none gap-2 p-0">
                         {column.links.map(([label, href]) => (
                           <li key={label}>
-                            <Link
-                              href={href}
-                              onClick={closeAll}
-                              className="text-[14.5px] text-ink-soft hover:text-teal"
-                            >
-                              {label}
-                            </Link>
+                            {href ? (
+                              <Link
+                                href={href}
+                                onClick={closeAll}
+                                className="text-[14.5px] text-ink-soft hover:text-teal"
+                              >
+                                {label}
+                              </Link>
+                            ) : (
+                              <span className="text-[14.5px] text-ink-soft">{label}</span>
+                            )}
                           </li>
                         ))}
                       </ul>
@@ -223,9 +224,6 @@ export default function Header() {
                 </div>
               </div>
             ))}
-            <Link href="/#insights" onClick={closeAll} className="text-[15px] font-medium">
-              What we think
-            </Link>
             <Link href="/#faq" onClick={closeAll} className="text-[15px] font-medium">
               FAQ
             </Link>
