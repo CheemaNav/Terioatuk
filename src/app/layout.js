@@ -1,5 +1,4 @@
 import { Figtree, IBM_Plex_Mono } from "next/font/google";
-import Script from "next/script";
 import HashScroll from "@/components/HashScroll";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -79,18 +78,18 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        <Script
+        <script
+          async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}');`,
+          }}
+        />
       </head>
       <body className="min-h-full font-sans text-ink" suppressHydrationWarning>
         <a
